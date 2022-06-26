@@ -1,5 +1,6 @@
 import { useRef, useState, useContext } from "react";
 import { MyContext } from "../context";
+import { toast } from "react-toastify";
 
 const Initial = () => {
     // If want to use the context
@@ -8,7 +9,7 @@ const Initial = () => {
 
     const textInput = useRef();
     const [showNext, setShowNext] = useState(false)
-    const [showError, setShowError] = useState(false)
+    // const [showError, setShowError] = useState(false)
 
     const handleChange = () => {
         if (textInput.current.value.length >= 5) setShowNext(true)
@@ -18,7 +19,10 @@ const Initial = () => {
     const handleSubmit = () => {
         const value = textInput.current.value;
         if (value.length >= 30) {
-            setShowError(true);
+            // setShowError(true);
+            toast.error("Too long bro!!",{
+                position:toast.POSITION.TOP_LEFT
+            })
             return false
         }
         // go to the 'confirm' page
@@ -47,11 +51,11 @@ const Initial = () => {
                 </button>
             }
 
-            { showError && 
+            {/* { showError && 
                 <div className="error">
                     The question is too long
                 </div>
-            }
+            } */}
 
 
         </div>

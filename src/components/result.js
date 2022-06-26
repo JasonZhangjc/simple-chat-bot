@@ -1,5 +1,7 @@
 import { useContext, useEffect } from "react";
 import { MyContext } from "../context";
+import { toast } from "react-toastify";
+
 
 const Result = () => {
     // If want to use the context
@@ -9,7 +11,10 @@ const Result = () => {
     // only want to call the result once
     // therefore we need the [] at the end of the following 3-line code
     useEffect(() => {
-        context.result()
+        context.result();
+        toast.success("There is your answer", {
+            position:toast.POSITION.BOTTOM_CENTER
+        })
     },[])
 
     return (

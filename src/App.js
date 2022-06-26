@@ -14,6 +14,14 @@ npm install react-transition-group --save
 */
 import {SwitchTransition, CSSTransition} from 'react-transition-group';
 
+/*
+Need to install react-toastify for some animations
+npm install react-toastify --save
+*/
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import './assets/App.css';
 import Initial from './components/initial';
 import Confirm from './components/confirm';
@@ -32,19 +40,23 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      {/* The Transitions here are for animations */}
-      <SwitchTransition mode="out-in">
-        {/* animation lasts for 500ms */}
-        <CSSTransition
-          key={context.state.screen}
-          timeout={500}
-          classNames="fade"
-        >
-          {handleComponent()}
-        </CSSTransition>
-      </SwitchTransition>
+    <div>
+      <div className="container">
+        {/* The Transitions here are for animations */}
+        <SwitchTransition mode="out-in">
+          {/* animation lasts for 500ms */}
+          <CSSTransition
+            key={context.state.screen}
+            timeout={500}
+            classNames="fade"
+          >
+            {handleComponent()}
+          </CSSTransition>
+        </SwitchTransition>
+      </div>
+      <ToastContainer />
     </div>
+    
   );
 }
 
