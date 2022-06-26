@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# An React APP - Simple Chat Bot that Answers Your Questions with Random Words.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
