@@ -1,7 +1,19 @@
 import { useContext } from 'react';
 import { MyContext } from './context';
 
+/* 
+Need to install animate.css to 
+enable animations between different screens
+npm install animate.css --save
+*/
 import 'animate.css';
+
+/*
+Also need to use SwitchTransition and CSSTransition
+npm install react-transition-group --save
+*/
+import {SwitchTransition, CSSTransition} from 'react-transition-group';
+
 import './assets/App.css';
 import Initial from './components/initial';
 import Confirm from './components/confirm';
@@ -21,7 +33,17 @@ const App = () => {
 
   return (
     <div className="container">
-      {handleComponent()}
+      {/* The Transitions here are for animations */}
+      <SwitchTransition mode="out-in">
+        {/* animation lasts for 500ms */}
+        <CSSTransition
+          key={context.state.screen}
+          timeout={500}
+          classNames="fade"
+        >
+          {handleComponent()}
+        </CSSTransition>
+      </SwitchTransition>
     </div>
   );
 }

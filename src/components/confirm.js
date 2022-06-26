@@ -1,11 +1,6 @@
 import { useContext } from "react";
 import { MyContext } from "../context";
 
-/* 
-Need to install animate.css
-npm install animate.css --save
-*/
-
 
 const Confirm = () => {
     // If want to use the context
